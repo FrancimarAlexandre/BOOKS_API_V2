@@ -15,7 +15,8 @@ class Book(models.Model):
     titulo = models.CharField(max_length=255)
     descricao = models.TextField()
     DataPub = models.DateField()
-    DataCad = models.DateField(auto_now_add=True)
-
+    created = models.DateField(auto_now_add=True)
+    class Meta:
+        ordering = ['created']
     def __str__(self):
         return f'Livro {self.titulo} do autor {self.autor}'
